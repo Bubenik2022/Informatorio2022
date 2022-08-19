@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>ZenBlog Bootstrap Template - Index</title>
+  <title>Fundación "Vientos De Cambio" - Orquesta Escuela Infantil / Juvenil</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   {% load static %}
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{% static 'img/logo.png' %}" rel="icon">
+  <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,7 @@
 
           <li class="dropdown"><a href="category.html"><span>Categorias</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="search-result.html">Search Result</a></li>
+              <li><a href="search-result.html">Partituras</a></li>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
@@ -64,7 +64,7 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li>
-              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Eventos</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
@@ -108,40 +108,24 @@
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-1.jpg');">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{% static "img/slide1.jpg"%}')";>
                     <div class="img-bg-inner">
-                      <h2>The Best Homemade Masks for Face (keep the Pimples Away)</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+                      <h2>Tocando pueblos con la Música</h2>
+                      <p>“𝓛𝓪 𝓶ú𝓼𝓲𝓬𝓪 𝓮𝓼 𝓮𝓵 ú𝓷𝓲𝓬𝓸 𝓲𝓭𝓲𝓸𝓶𝓪 𝓺𝓾𝓮 𝓷𝓸𝓼 𝓱𝓮𝓻𝓶𝓪𝓷𝓪 𝓬𝓸𝓷 𝓽𝓸𝓭𝓸𝓼 𝓵𝓸𝓼 𝓹𝓾𝓮𝓫𝓵𝓸𝓼”
+                        Eduardo Puyelli - Música</p>
                     </div>
                   </a>
                 </div>
 
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-2.jpg');">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{% static "img/slide2.jpg"%}')";>
                     <div class="img-bg-inner">
-                      <h2>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+                      <h2>Concierto realizado</h2>
+                      <p>“I always knew I was a star. And now, the rest of the world seems to agree with me.”</p>
                     </div>
                   </a>
                 </div>
 
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-3.jpg');">
-                    <div class="img-bg-inner">
-                      <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-4.jpg');">
-                    <div class="img-bg-inner">
-                      <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
-                    </div>
-                  </a>
-                </div>
               </div>
               <div class="custom-swiper-button-next">
                 <span class="bi-chevron-right"></span>
@@ -177,8 +161,8 @@
               <div class="col-lg-4 border-start custom-border">
                 <div class="post-entry-1">
                   <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
-                  <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                  <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
+                  <div class="post-meta"><span class="date">Tag</span> <span class="mx-1">&bullet;</span> <span>Fecha</span></div>
+                  <h2><a href="single-post.html">Titulo de post mas viejos</a></h2>
                 </div>
                 <div class="post-entry-1">
                   <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
