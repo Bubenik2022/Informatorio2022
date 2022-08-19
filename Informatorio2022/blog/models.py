@@ -18,3 +18,18 @@ class Post(models.Model):
     
     def __str__(self):
         return self.titulo
+
+class Imagen(models.Model):
+    descripcion = models.CharField(max_length = 200)
+
+class Video(models.Model):
+    descripcion = models.CharField(max_length=200)
+
+class evento(models.Model):
+    titulo = models.CharField(max_length=200)
+    nombre_evento = models.CharField(max_length=200)
+    fecha_hora_evento = models.DateField(auto_now=False, auto_now_add=False)
+    fecha_hora_pub_evento = models.DateField(auto_now=False, auto_now_add=True)
+    fecha_hora_elim_evento = models.DateField(auto_now=False, auto_now_add=True)
+    informacion = models.CharField(max_length=200)
+        
