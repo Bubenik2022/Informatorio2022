@@ -2,7 +2,7 @@ from time import time
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-
+from django.template.defaultfilters import slugify
 # Create your models here.
 
 class Evento(models.Model):
@@ -24,10 +24,11 @@ class Post(models.Model):
     autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # id_evento = models.ForeignKey(Evento, on_delete=models.CASCADE)   #importa el orden en el que se crean los modelos? está bien definida esta FK?
     titulo = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True, default='')
     texto = models.TextField()  
     fecha_creacion = models.DateTimeField(default=timezone.now)
-    fecha_publicacion = models.DateTimeField(blank=True, null=True)
-
+    fecha_publicacion = models.DateTimeField(auto_now_add=True)
+    
     def publicar(self):
         self.fecha_publicacion = timezone.now()
         self.save()

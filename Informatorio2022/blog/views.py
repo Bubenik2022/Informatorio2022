@@ -4,8 +4,9 @@ from blog.models import Post
 # Create your views here.
 
 def index(request):
-    context = {"insert_me": "I am from views.py",
-                'prueba_variable': 'Probandooooooo'}
+    ls = list(Post.objects.all().order_by('-id'))
+    context = {'post_list': ls,
+                }
     return render(request,'index.html',context=context)
 
 def contacto(request):
@@ -29,11 +30,10 @@ def about(request):
     return render(request,'about.html')
 
 def post_list(request):
-    ls = Post.objects.all()
+    ls = list(Post.objects.all().order_by('-id'))
     context = {'post_list': ls,
-                'id':Post.objects.get(id=1)
                 }
-    return render(request,'single-post.html',context)
+    return render(request,'test.html',context)
 
-def single_post(request,postid):
+def single_post(request,postid,slug):
     return render(request,'single-post.html',{'post':Post.objects.get(id=postid)})
