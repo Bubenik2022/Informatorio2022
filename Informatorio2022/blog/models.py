@@ -13,7 +13,7 @@ class Evento(models.Model):
     informacion = models.CharField(max_length=200)
 
     def publicar(self):
-        self.fecha_publcacion = timezone.now()
+        self.fecha_publicacion = timezone.now()
         self.save()
 
     def eliminar(self):
@@ -26,7 +26,7 @@ class Post(models.Model):
     titulo = models.CharField(max_length=200)
     texto = models.TextField()  
     fecha_creacion = models.DateTimeField(default=timezone.now)
-    fecha_publcacion = models.DateTimeField(blank=True, null=True)
+    fecha_publicacion = models.DateTimeField(blank=True, null=True)
 
     def publicar(self):
         self.fecha_publcacion = timezone.now()
