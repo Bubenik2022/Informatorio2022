@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Evento(models.Model):
@@ -35,6 +36,18 @@ class Post(models.Model):
     
     def __str__(self):
         return self.titulo
+
+class Comentario(models.Model):
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    texto = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comentarios')
+    fecha_publicacion = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('-fecha_publicacion',)
+
+    def __str__(self):
+        return 'Comentado por {}'.format(self.autor)
 
 '''class Imagen(models.Model):
     id_post = models.ForeignKey(Post, on_delete=models.CASCADE)

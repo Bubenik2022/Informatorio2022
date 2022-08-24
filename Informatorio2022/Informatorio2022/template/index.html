@@ -49,6 +49,7 @@
       <div class="container" data-aos="fade-up">
         <div class="row g-5">
           <div class="col-lg-4">
+            {% if post_list %}
             <div class="post-entry-1 lg">
               <a href="{% url 'post' post_list.0.id post_list.0.slug %}"><img src='{% static "img/logo.png" %}' alt="" class="img-fluid"></a>
               <div class="post-meta"><span class="mx-1">&bullet;</span> <span>{{ post_list.0.fecha_publicacion }}</span></div>
@@ -56,7 +57,7 @@
               <p class="mb-4 d-block">{{ post_list.0.texto | slice:":200" }}...</p>
 
             </div>
-
+            
           </div>
 
           <div class="col-lg-8">
@@ -85,7 +86,7 @@
                 
                 {% endfor %}
               </div>
-
+              {% endif %}
               <!-- Trending Section -->
               <div class="col-lg-4">
 
