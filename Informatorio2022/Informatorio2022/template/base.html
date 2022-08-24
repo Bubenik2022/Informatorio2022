@@ -69,14 +69,24 @@
               
             </ul>
           </li>
-
+          
           <li><a href="{% url 'nosotros' %}">Acerca de nosotros</a></li>
+          <li><a href="{% url 'contacto' %}">Contacto</a></li>
+          
+          {% if user.is_authenticated %}
+
+          <li><a>Postear</a></li>   
+          <li><a>Desloguear</a></li>   
+
+          {% else %}
 
           <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
 
           <li><a href="{% url 'registro' %}">Registrarse</a></li>
+          
+          {% endif %}
 
-          <li><a href="{% url 'contacto' %}">Contacto</a></li>
+          
         </ul>
       </nav><!-- .navbar -->
 
