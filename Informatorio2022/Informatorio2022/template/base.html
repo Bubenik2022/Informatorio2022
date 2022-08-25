@@ -65,7 +65,7 @@
           {% if user.is_authenticated %}
 
           {% if user.is_staff %}
-          <li><a href="{% url 'login' %}">Postear</a></li>   
+          <li><a> <!-- href="{% url 'login' %}"-->Postear</a></li>   <!-- Arreglar cuando se tenga la página de posteo-->
           {% endif %}
 
           <li><a href="{% url 'logout' %}">Cerrar sesión</a></li> 
