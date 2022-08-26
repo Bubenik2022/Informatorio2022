@@ -65,7 +65,7 @@
           {% if user.is_authenticated %}
 
           {% if user.is_staff %}
-          <li><a href="{% url 'login' %}">Postear</a></li>   
+          <li><a> <!-- href="{% url 'login' %}"-->Postear</a></li>   <!-- Arreglar cuando se tenga la página de posteo-->
           {% endif %}
 
           <li><a href="{% url 'logout' %}">Cerrar sesión</a></li> 
@@ -83,9 +83,9 @@
       </nav><!-- .navbar -->
 
       <div class="position-relative">
-        <a href="https://www.facebook.com/orquestavientosdecambio" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+        <a href="https://www.facebook.com/orquestavientosdecambio" target="_blank" rel="noopener noreferrer" class="mx-2"><span class="bi-facebook"></span></a>
+        <a href="https://wa.me/5493644574664" target="_blank" rel="noopener noreferrer" class="mx-2"><span class="bi bi-whatsapp"></span></a>
+        <a href="https://www.instagram.com/fvientosdecambio/" target="_blank" rel="noopener noreferrer" class="mx-2"><span class="bi-instagram"></span></a>
 
         
 
@@ -118,9 +118,9 @@
 
           <div class="col-md-6">
             <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="https://www.facebook.com/orquestavientosdecambio" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>              
+              <a href="https://wa.me/5493644574664" class="whatsapp" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"  ></i></a>
+              <a href="https://www.facebook.com/orquestavientosdecambio"  class="facebook" target="_blank" rel="noopener noreferrer" ><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/fvientosdecambio/" class="instagram" target="_blank" rel="noopener noreferrer" ><i class="bi bi-instagram"  ></i></a>              
             </div>
 
           </div>
