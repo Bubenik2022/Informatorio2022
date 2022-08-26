@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 {% block content %}
 
-<h1>Registrarse</h1>
+
 <br/> <br/>
 
 <div class="form-group">
@@ -14,6 +14,13 @@
                   <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5">
                       <div class="row justify-content-center">
+
+                        {% if user.is_authenticated %}
+
+                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Usted ya se encuentra en una sesión activa</p>
+
+                        {% else %}
+
                         <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
           
                           <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registro</p>
@@ -57,12 +64,16 @@
                             </div>
           
                           </form>
-          
+
+                          
+
                         </div>
-                        <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                        <div class="col-md-10 col-lg-6 d-flex col-xl-5  justify-content-center">
                             {% load static %}
                           <img src="{% static 'img/logo.png' %}"
                             class="img-fluid" alt="Sample image">
+                        
+                        {% endif %}
           
                         </div>
                       </div>
