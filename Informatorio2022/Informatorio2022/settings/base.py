@@ -134,3 +134,4 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/login/registro/'] #evita el error "forbidden (403) csrf verification failed. request aborted"
