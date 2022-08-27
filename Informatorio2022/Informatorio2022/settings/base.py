@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Informatorio2022.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'informatorio2022',
@@ -87,7 +87,21 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
-}
+}'''
+
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'informatorio2022',
+        'USER': 'postgres',
+        'PASSWORD': 'videca2022',
+        'HOST': '127.0.0.1',
+        'PORT': '5432', 
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }  
+    }  
+}  
 
 
 
