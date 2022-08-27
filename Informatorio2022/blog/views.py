@@ -6,7 +6,8 @@ from blog.forms import ComentarioForm
 from django.views.generic import DetailView
 from django.contrib import messages
 from blog.forms import ComentarioForm, PostearForm
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -116,3 +117,15 @@ class Postear(CreateView):
             nuevo_post.save()
 
             return self.get(self, request, *args, **kwargs)
+
+
+class EditarPost(UpdateView):
+    model = Post
+    template_name = 'editar_post.html'
+    fields = ('titulo','texto','imagen')
+
+class EliminarPost(DeleteView):
+    model = Post
+    template_name = 'eliminar_post.html'
+    success_url = reverse_lazy('home')
+    

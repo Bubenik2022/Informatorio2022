@@ -16,6 +16,14 @@
               
             </div><!-- End Single Post Content -->
 
+            <!-- Eliminar post o editarlo si el user es parte del staff -->
+            {% if user.is_authenticated and user.is_staff %}
+            
+            <a class="btn btn-primary" href="{% url 'editar_post' post.id  post.slug %}">Editar post</a>
+            <a class="btn btn-primary" href="{% url 'eliminar_post' post.id  post.slug %}">Eliminar post</a><br>
+
+            {% endif %}
+
             <!-- ======= Comments ======= -->
             <div class="comments">
               <h5 class="comment-title py-4">Comentarios</h5>
@@ -29,7 +37,17 @@
               <form method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                  {{ comentario_form }}
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+
+                    <div class="form-outline flex-fill mb-0">
+                      <textarea type="text" id="text" class="form-control" name='texto' rows = "5">
+                        
+                    </textarea>
+                    </div>
+                  </div>
+
                   <button class="btn btn-primary" type="submit">Comentar <i class="fas fa-comments"></i></button>
                 </div>
               </form>

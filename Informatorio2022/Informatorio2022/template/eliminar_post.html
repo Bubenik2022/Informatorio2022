@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<br/><br/><br/><br/><br/>
+{% if user.is_authenticated and user.is_staff %}                            
+
+              <form method="POST">
+                {% csrf_token %}
+
+                <form class="mx-1 mx-md-4">
+
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">¿Seguro que quiere eliminar el post "{{ post.titulo }}"?</p>
+
+                  <br/>
+                  
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button class="btn btn-primary" type="submit">Eliminar post<i class="fas fa-comments"></i></button>
+                  </div>
+                  
+                </form>
+                
+                
+                
+                <br/><br/>
+                
+              </form>
+              {% endif %}
+{% endblock content %}
