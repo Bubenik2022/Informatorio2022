@@ -25,6 +25,7 @@ class Post(models.Model):
     autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # id_evento = models.ForeignKey(Evento, on_delete=models.CASCADE)   #importa el orden en el que se crean los modelos? está bien definida esta FK?
     titulo = models.CharField(max_length=200)
+    imagen = models.ImageField(null=True, blank=True)
     slug = models.SlugField(max_length=200, unique=True, default='')
     texto = models.TextField()  
     fecha_creacion = models.DateTimeField(default=timezone.now)

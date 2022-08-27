@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(182, 149, 192);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    margin-left: auto;
+    margin-right: auto;
+}
+.conteiner{
+    margin-left: 7.3%;
+
+}

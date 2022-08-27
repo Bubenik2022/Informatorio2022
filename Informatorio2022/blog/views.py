@@ -1,8 +1,13 @@
+import os
 from http.client import HTTPResponse
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render, redirect
 from blog.models import Post, Comentario
 from blog.forms import ComentarioForm
 from django.views.generic import DetailView
+from django.contrib import messages
+from blog.forms import FormPost
+
+
 # Create your views here.
 
 def index(request):
@@ -73,3 +78,19 @@ class DetallesPost(DetailView):
 
                 }
     return render(request,'single-post.html',context)'''
+
+def crear_post(request):
+    if request.method == "POST":
+        form = FormPost(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author_id = request.user.id
+            post.save()
+            titulo = form.cleaned_data.get("title")
+            messages.success(request, f"El post {titulo} se ha creado correctamente")
+            return redirect("post")
+        else:
+            for msg in form.error_messages:
+                messages.error(request, form.error_messages[msg])
+    form = FormPost()
+    return render(request, "crear_post.html", {"form": form})
