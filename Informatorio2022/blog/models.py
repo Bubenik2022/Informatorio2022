@@ -4,10 +4,11 @@ from django.conf import settings
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from django.urls import reverse
 # Create your models here.
 
 class Evento(models.Model):
-    autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=200)
     nombre_evento = models.CharField(max_length=200)
     fecha_hora_evento = models.DateField(auto_now=False, auto_now_add=False)
@@ -22,7 +23,7 @@ class Evento(models.Model):
         self.delete()                                      #lo elimina de la base de datos también? sip
 
 class Post(models.Model):
-    autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
     # id_evento = models.ForeignKey(Evento, on_delete=models.CASCADE)   #importa el orden en el que se crean los modelos? está bien definida esta FK?
     titulo = models.CharField(max_length=200)
     imagen = models.ImageField(null=True, blank=True)
@@ -31,12 +32,16 @@ class Post(models.Model):
     fecha_creacion = models.DateTimeField(default=timezone.now)
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     
-    def publicar(self):
+    def save(self,*args, **kwargs):
         self.fecha_publicacion = timezone.now()
-        self.save()
+        self.slug = slugify(self.titulo)
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return self.titulo
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 class Comentario(models.Model):
     autor = models.ForeignKey(User, on_delete=models.CASCADE)

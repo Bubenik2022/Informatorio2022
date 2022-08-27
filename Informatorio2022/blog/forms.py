@@ -11,7 +11,7 @@ class ComentarioForm(forms.ModelForm):
         fields = ('texto',)
 
 
-class FormPost(forms.ModelForm):
+class PostearForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('titulo', 'texto', 'imagen')

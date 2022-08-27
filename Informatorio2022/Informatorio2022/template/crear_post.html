@@ -1,39 +1,50 @@
-{% load static %}
+{% extends "base.html" %} 
+{% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap-grid.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'crearpost.css' %}" />
+<br/><br/><br/><br/><br/>
+{% if user.is_authenticated and user.is_staff %}                            
 
-    <title>Crear Post</title>
-</head>
-<body>
-    {% load crispy_forms_tags %}
-    <center>
-    <div class="conteiner-fluid">
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-5">
-                <div class="card text-white bg-dark mb-3 text-left" >
-                    <div class="card">
-                    <div class="card-header text-center bg-warning" style="color:black;font-family:'Rockwell'"><h4>POST</h4></div></div>
-                    <div class="card-body" style="color:white; font-family:'Rockwell'">
-                        <form method="post" action="" class="mt-3" autocomplete="off" enctype="multipart/form-data">
-                            {% csrf_token %}
-                             {{ form | crispy }}
-                        
-                            <input type="submit" value="Crear Post" class="btn btn-warning btn-lg btn-block">
-                        </form>
+              <form method="POST">
+                {% csrf_token %}
+
+                <form class="mx-1 mx-md-4">
+
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Crear post</p>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" class="form-control" name='titulo' placeholder="Título"/>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </center>
-</body>
-</html>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+
+                    <div class="form-outline flex-fill mb-0">
+                      <textarea type="text" id="text" class="form-control" name='texto' placeholder="Texto del post" rows = "5">
+                      
+                    </textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="controls"> <input type="file" name="imagen" accept="image/*" class="clearablefileinput" id="id_imagen"> </div>
+
+                  <br/><br/>
+                  
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button class="btn btn-primary" type="submit">Publicar Post<i class="fas fa-comments"></i></button>
+                  </div>
+                  
+                </form>
+                
+                
+                
+                <br/><br/>
+                
+              </form>
+              {% endif %}
+{% endblock content %}

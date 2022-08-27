@@ -5,8 +5,8 @@ from blog.models import Post, Comentario
 from blog.forms import ComentarioForm
 from django.views.generic import DetailView
 from django.contrib import messages
-from blog.forms import FormPost
-
+from blog.forms import ComentarioForm, PostearForm
+from django.views.generic import DetailView, CreateView
 
 # Create your views here.
 
@@ -79,7 +79,7 @@ class DetallesPost(DetailView):
                 }
     return render(request,'single-post.html',context)'''
 
-def crear_post(request):
+'''def crear_post(request):
     if request.method == "POST":
         form = FormPost(request.POST, request.FILES)
         if form.is_valid():
@@ -93,4 +93,26 @@ def crear_post(request):
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
     form = FormPost()
-    return render(request, "crear_post.html", {"form": form})
+    return render(request, "crear_post.html", {"form": form})'''
+
+class Postear(CreateView):
+    model = Post
+    template_name = 'crear_post.html'
+    fields = ('titulo','texto')
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+
+        if self.request.user.is_authenticated:
+            data['post_form'] = PostearForm(instance=self.request.user)
+
+        return data
+
+    def post(self, request, *args, **kwargs):
+            nuevo_post = Post(texto=request.POST.get('texto'),
+                                    autor=self.request.user,
+                                    titulo=self.request.POST.get('titulo')
+                                    )
+            nuevo_post.save()
+
+            return self.get(self, request, *args, **kwargs)
