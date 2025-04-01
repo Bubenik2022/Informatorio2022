@@ -1,5 +1,5 @@
 # Informatorio2022 - Grupo 9
-_come on your freak nerds!_
+
 
 ## Info importante
 Recuerden que en el archivo _requirements.txt_ estarán disponibles las librerias necesarias para el proyecto (por ahora solo esta Django). Si instalan alguna librería este archivo se crea con el comando:
